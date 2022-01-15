@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import FunctionContextComponent from './FunctionContextComponent';
+import ClassContextComponent from './ClassContextComponent';
 import './style.css';
 
 export const ThemeContext = React.createContext();
@@ -12,9 +14,11 @@ export default function App() {
 
   return (
     <>
-    <ThemeContext.Provider>
-      <button onClick>Toggle Theme</button>
-    </ThemeContext.Provider>
+      <ThemeContext.Provider value={darkTheme}>
+        <button onClick={toggleTheme}>Toggle Theme</button>
+        <FunctionContextComponent />
+        <ClassContextComponent />
+      </ThemeContext.Provider>
     </>
   );
 }
