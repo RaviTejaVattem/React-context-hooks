@@ -1,19 +1,18 @@
 import React from 'react';
-import { useTheme, useThemeUpdate } from './ThemeContext';
+import { useTheme } from './ThemeContext';
 
 export default function FunctionContextComponent() {
-  const darkTheme = useTheme();
-  const toggleTheme = useThemeUpdate();
+  const theme = useTheme();
   const themeStyles = {
-    backgroundColor: darkTheme ? '#333' : '#CCC',
-    color: darkTheme ? '#CCC' : '#333',
+    backgroundColor: theme.darkTheme ? '#333' : '#CCC',
+    color: theme.darkTheme ? '#CCC' : '#333',
     padding: '2rem',
     margin: '2rem',
   };
 
   return (
     <>
-      <button onClick={toggleTheme}>Toggle Theme</button>
+      <button onClick={theme.toggleTheme}>Toggle Theme</button>
       <div style={themeStyles}>Function Theme</div>
     </>
   );
